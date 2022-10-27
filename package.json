@@ -1,0 +1,24 @@
+{
+  "name": "restful_with_ajax",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start" : "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/quyvuacn/RESTful_with_ajax.git"
+  },
+  "author": "Quy Vu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/quyvuacn/RESTful_with_ajax/issues"
+  },
+  "homepage": "https://github.com/quyvuacn/RESTful_with_ajax#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "nodemon": "^2.0.20"
+  }
+}
