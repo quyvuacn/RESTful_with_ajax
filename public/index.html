@@ -19,6 +19,7 @@
     
     
     <script>
+        console.log(window.location.href+'ajaxcall')
         function display(data){
             let trs = ''
             data.forEach(el=>{
@@ -53,7 +54,7 @@
         function get(){
             $.ajax({
                 type : 'GET',
-                url : `${window.location.href}ajaxcall`,
+                url : `${window.location.origin}/ajaxcall`,
                 dataType : 'json'
             })
             .done(function(data){
@@ -68,7 +69,7 @@
         function post(){
             $.ajax({
                 type : 'POST',
-                url :  `${window.location.href}/ajaxcall`,
+                url :  `${window.location.origin}/ajaxcall`,
                 crossDomain : true,
                 contentType : 'application/json;charset=utf-8',
                 dataType : 'json',
@@ -89,7 +90,7 @@
             confirm('Bạn có muốn xóa học sinh này không?') == true ??
             $.ajax({
                 type : 'DELETE',
-                url : `${window.location.href}/ajaxcall/${id}`,     
+                url : `${window.location.origin}/ajaxcall/${id}`,     
                 dataType : 'json',
             })
             .done(function(data){
@@ -103,7 +104,7 @@
             let put_name = $(`#id${id}`).val()
             $.ajax({
                 type : 'PUT',
-                url : `${window.location.href}/ajaxcall/${id}`,
+                url : `${window.location.origin}/ajaxcall/${id}`,
                 crossDomain : true,
                 contentType : 'application/json;charset=utf-8',
                 dataType : 'json',
