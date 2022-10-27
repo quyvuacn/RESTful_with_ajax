@@ -11,15 +11,15 @@
 </head>
 <body>
     <div class="container">
-        <button onclick="get()">POST</button>
+        <button onclick="get()">GET</button>
     <div>
-        <div id="getResponse"></div>    
+        <div id="getResponse">      
+        </div>    
     </div>
     </div>
     
     
     <script>
-        console.log(window.location.href+'ajaxcall')
         function display(data){
             let trs = ''
             data.forEach(el=>{
@@ -54,7 +54,7 @@
         function get(){
             $.ajax({
                 type : 'GET',
-                url : `${window.location.origin}/ajaxcall`,
+                url : `${window.location.origin}/student`,
                 dataType : 'json'
             })
             .done(function(data){
@@ -69,7 +69,7 @@
         function post(){
             $.ajax({
                 type : 'POST',
-                url :  `${window.location.origin}/ajaxcall`,
+                url :  `${window.location.origin}/student`,
                 crossDomain : true,
                 contentType : 'application/json;charset=utf-8',
                 dataType : 'json',
@@ -87,10 +87,10 @@
             })
         }
         function del(id){
-            confirm('Bạn có muốn xóa học sinh này không?') == true ??
+            if(confirm('Bạn có muốn xóa học sinh này không?'))
             $.ajax({
                 type : 'DELETE',
-                url : `${window.location.origin}/ajaxcall/${id}`,     
+                url : `${window.location.origin}/student/${id}`,     
                 dataType : 'json',
             })
             .done(function(data){
@@ -98,13 +98,14 @@
             })
             .fail(function(jqXHR, textStatus, err) {
                 console.log('ERROR:',textStatus)
-            })
+            }) 
         }
         function put(id){
             let put_name = $(`#id${id}`).val()
+            if(confirm('Bạn có muốn sửa học sinh này không?'))
             $.ajax({
                 type : 'PUT',
-                url : `${window.location.origin}/ajaxcall/${id}`,
+                url : `${window.location.origin}/student/${id}`,
                 crossDomain : true,
                 contentType : 'application/json;charset=utf-8',
                 dataType : 'json',
@@ -121,5 +122,6 @@
         }
 
     </script>
+
 </body>
 </html>
